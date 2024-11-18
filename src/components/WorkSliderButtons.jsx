@@ -8,10 +8,18 @@ const WorkSliderButtons = ({ containerStyles, btnStyles, iconsStyles }) => {
 
   return (
     <div className={containerStyles}>
-      <button className={btnStyles} onClick={() => swiper.slidePrev()}>
+      <button
+        className={`${btnStyles} ${swiper.isBeginning ? 'disabled:pointer-events-none disabled:opacity-75' : ''}`}
+        onClick={() => swiper.slidePrev()}
+        disabled={swiper.isBeginning}
+      >
         <PiCaretLeftBold className={iconsStyles} />
       </button>
-      <button className={btnStyles} onClick={() => swiper.slideNext()}>
+      <button
+        className={`${btnStyles} ${swiper.isEnd ? 'disabled:pointer-events-none disabled:opacity-75' : ''}`}
+        onClick={() => swiper.slideNext()}
+        disabled={swiper.isEnd}
+      >
         <PiCaretRightBold className={iconsStyles} />
       </button>
     </div>
